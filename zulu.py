@@ -52,10 +52,10 @@ bulan_ttl = {"01": "Januari", "02": "Februari", "03": "Maret", "04": "April", "0
 
 def logo():
 	os.system("clear")
-	print("""
-\x1b[1:62m░█──░█ ▀█▀ ░█▀▀▀█ ░█▀▀▀█ ░█──░█ ░█▀▀█ 
+	print("""\x1b[1:62m░█──░█ ▀█▀ ░█▀▀▀█ ░█▀▀▀█ ░█──░█ ░█▀▀█ 
 \x1b[1;44m░█░█░█ ░█─ ─▄▄▄▀▀ ─▄▄▄▀▀ ░█▄▄▄█ ░█▀▀▄ 
-\x1b[1;45m░█▄▀▄█ ▄█▄ ░█▄▄▄█ ░█▄▄▄█ ──░█── ░█▄▄█""")
+\x1b[1;45m░█▄▀▄█ ▄█▄ ░█▄▄▄█ ░█▄▄▄█ ──░█── ░█▄▄█
+""")
 def login():
 	os.system("clear")
 	try:
@@ -267,7 +267,7 @@ def cek_ttl_cp(uid, pw):
 			month, day, year = ttl.split("/")
 			month = bulan_ttl[month]
 			print("\r\033[1;91m[WIZZYB-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
-			cp.append("%s|%s"%(uid, pw))
+			cp.append("%s | %s"%(uid, pw))
 			open("CP/%s.txt"%(tanggal),"a").write(" + %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
 	except KeyError, IOError:
 		day = (" ")

